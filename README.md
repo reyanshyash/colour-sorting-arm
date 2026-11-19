@@ -4,6 +4,10 @@ Give the arm a command such as `green 80 80` and it must find the green block, l
 
 This six-axis arm runs in MuJoCo with a ROS 2 Humble controller. Across three fresh simulation layouts, it transferred **9 of 9 blocks** with a **mean placement error of 8.6 mm**. All nine came to rest fully on the destination table. The largest miss from the requested point was **12.4 mm**. [Per-seed results and trial conditions](VALIDATION.md)
 
+![MuJoCo arm scans both tables, picks up the green block, and reports its final placement error](docs/pick-and-place.gif)
+
+*Sped-up MuJoCo run for `green 80 80`. The final caption shows the measured distance from the requested point to the settled block centre.*
+
 ## How the arm finds a point on the table
 
 1. **Find the boundaries.** From a parked pose, the calibrated overhead RGB camera captures both tables. OpenCV extracts their four-corner outlines and locates the coloured blocks inside them.
